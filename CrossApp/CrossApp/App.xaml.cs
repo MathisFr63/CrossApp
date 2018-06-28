@@ -1,18 +1,23 @@
+using Model;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace CrossApp
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
-		public App ()
+        internal Manager Manager { get; set; }
+
+        public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
-		}
+            Manager = new Manager();
+
+            MainPage = new MainPage();
+        }
 
 		protected override void OnStart ()
 		{
