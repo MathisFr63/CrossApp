@@ -3,7 +3,21 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
             <Label Text="Nom de l'application" />
-            <Label Text="{Binding Manager.CurrentAccount.Login}" />
+            <ListView ItemsSource="{Binding Manager.CAPublications}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Date, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}" />
+                                <Label Text="{Binding Message}" />
+                                <StackLayout>
+                                    <Image Source="{Binding ImageSource}" HeightRequest="150" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

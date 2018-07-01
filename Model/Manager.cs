@@ -38,8 +38,10 @@ namespace Model
         public Account CurrentAccount
         {
             get { return currentAccount; }
-            set { currentAccount = value; OnPropertyChanged(nameof(CurrentAccount)); }
+            set { currentAccount = value; OnPropertyChanged(nameof(CurrentAccount)); UpdateCAPublications(); }
         }
+
+        public ObservableCollection<Publication> CAPublications { get; set; }
         #endregion
 
         #region Constructor
@@ -48,18 +50,26 @@ namespace Model
         /// </summary>
         public Manager()
         {
-            //db = new ApplicationContext();
+            db = new ApplicationContext();
+            //db = new ApplicationContext(true);
             GetData();
+            Test();
         }
         #endregion
 
         #region Methods
         /// <summary>
+        /// Put all the tests here
+        /// </summary>
+        private void Test()
+        {
+        }
+
+        /// <summary>
         /// Get all the database data into properties of the Manager.
         /// </summary>
         private void GetData()
         {
-            //Accounts = new ObservableCollection<Account>(db.Accounts.ToList());
         }
 
         /// <summary>
@@ -115,6 +125,42 @@ namespace Model
             CurrentAccount.ModifyAccount(account);
             SaveChanges();
         }
+
+        #region Private methods
+        /// <summary>
+        /// Update the collection of publications with the publications of the current account.
+        /// </summary>
+        private void UpdateCAPublications()
+        {
+            this.CAPublications = new ObservableCollection<Publication>(db.Publications.Where(item => item.AccountId == CurrentAccount.Id));
+        }
+        #endregion
+
+        #region Publications
+        #region Add publications
+        /// <summary>
+        /// Adds an publication to the currentAccount.
+        /// </summary>
+        /// <param name="publication">Publication.</param>
+        public void AddPublication(Publication publication)
+        {
+            // TO DO : il faudra prendre en compte plus de paramètres et faire plusieurs méthodes selon le type de publications (son / photo / date)
+            db.Publications.Add(publication);
+            SaveChanges();
+        }
+
+        /// <summary>
+        /// Adds an image publication to the currentAccount.
+        /// </summary>
+        /// <param name="accountId">Account identifier.</param>
+        /// <param name="message">Message.</param>
+        /// <param name="uri">URI.</param>
+        public void AddImagePublication(int accountId, string message, string imageSource)
+        {
+            AddPublication(new ImagePublication(accountId, message, imageSource));
+        }
+        #endregion
+        #endregion
         #endregion
     }
 }

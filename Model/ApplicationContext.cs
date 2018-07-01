@@ -1,15 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Model
 {
     public class ApplicationContext : DbContext
     {
-        public ApplicationContext()
+        public ApplicationContext(bool recreate = false)
         {
+            if (recreate)
+                Database.EnsureDeleted();
             Database.EnsureCreated();
+            if (recreate)
+                ApplicationInitializer.Seed(this);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -19,5 +24,7 @@ namespace Model
         }
 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Publication> Publications { get; set; }
+        public DbSet<ImagePublication> ImagePublications { get; set; }
     }
 }

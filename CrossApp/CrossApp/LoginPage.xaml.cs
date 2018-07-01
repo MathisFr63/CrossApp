@@ -24,7 +24,7 @@ namespace CrossApp
         /// <summary>
         /// Login for the connection
         /// </summary>
-        private string login;
+        private string login = "Mathis.FRIZOT";
         public string Login
         {
             get { return login; }
@@ -33,7 +33,7 @@ namespace CrossApp
         /// <summary>
         /// Password for the connection
         /// </summary>
-        private string password;
+        private string password = "admin";
         public string Password
         {
             get { return password; }

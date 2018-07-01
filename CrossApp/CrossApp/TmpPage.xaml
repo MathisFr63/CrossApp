@@ -1,21 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:CrossApp" x:Class="CrossApp.TmpPage">
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <!-- List containing some account informations -->
-        <ListView ItemsSource="{Binding Manager.Accounts}" SelectedItem="{Binding Manager.CurrentAccount}" HasUnevenRows="true" ItemTapped="listAccount_DoubleClicked">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding FirstName}" />
-                            <Label Text="{Binding LastName}" />
-                            <Label Text="{Binding DoB}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <!-- Button to add an account -->
-        <Button Text="{Binding Manager.CurrentAccount.Login}" Clicked="btnAdd_Clicked" />
-    </StackLayout>
+    <Label Text="Bonjour" VerticalOptions="Center" HorizontalOptions="Center"/>
 </ContentPage>

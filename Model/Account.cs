@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Model
 {
@@ -35,9 +35,14 @@ namespace Model
         /// Date of birth
         /// </summary>
         public DateTime DoB { get; set; }
+
+        public virtual ICollection<Publication> Publications { get; set; }
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Account()
         {
         }
@@ -72,6 +77,7 @@ namespace Model
             LastName = account.LastName;
             DoB = account.DoB;
         }
+        #endregion
 
         /// <summary>
         /// Modify public information about an account
@@ -83,6 +89,5 @@ namespace Model
             LastName = account.LastName;
             DoB = account.DoB;
         }
-        #endregion
     }
 }

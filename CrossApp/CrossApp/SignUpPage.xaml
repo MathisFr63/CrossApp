@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CrossApp.SignUpPage">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="50, 0, 50, 0">
-            <!-- Login -->
-            <StackLayout>
-                <Label Text="Login" />
-                <Entry Text="{Binding Login}" />
+        <Grid>
+            <Button Text="Retour" Clicked="btnBack_Clicked" />
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="50, 0, 50, 0">
+                <!-- Login -->
+                <StackLayout>
+                    <Label Text="Login" />
+                    <Entry Text="{Binding Login}" />
+                </StackLayout>
+                <!-- Password -->
+                <StackLayout>
+                    <Label Text="Password" />
+                    <Entry Text="{Binding Password}" IsPassword="true" />
+                </StackLayout>
+                <!-- Confirm password -->
+                <StackLayout>
+                    <Label Text="Confirm" />
+                    <Entry Text="{Binding PasswordConfirmation}" IsPassword="true" />
+                </StackLayout>
+                <!-- First name -->
+                <StackLayout>
+                    <Label Text="First name" />
+                    <Entry Text="{Binding FirstName}" />
+                </StackLayout>
+                <!-- Last name -->
+                <StackLayout>
+                    <Label Text="Last name" />
+                    <Entry Text="{Binding LastName}" />
+                </StackLayout>
+                <!-- Date of birth -->
+                <StackLayout>
+                    <Label Text="Date of birth" />
+                    <DatePicker Date="{Binding DateOfBirth}" />
+                </StackLayout>
+                <Grid>
+                    <Button Text="Sign up" Clicked="btnSignUp_Clicked" />
+                </Grid>
             </StackLayout>
-            <!-- Password -->
-            <StackLayout>
-                <Label Text="Password" />
-                <Entry Text="{Binding Password}" IsPassword="true" />
-            </StackLayout>
-            <!-- Confirm password -->
-            <StackLayout>
-                <Label Text="Confirm" />
-                <Entry Text="{Binding PasswordConfirmation}" IsPassword="true" />
-            </StackLayout>
-            <!-- First name -->
-            <StackLayout>
-                <Label Text="First name" />
-                <Entry Text="{Binding FirstName}" />
-            </StackLayout>
-            <!-- Last name -->
-            <StackLayout>
-                <Label Text="Last name" />
-                <Entry Text="{Binding LastName}" />
-            </StackLayout>
-            <!-- Date of birth -->
-            <StackLayout>
-                <Label Text="Date of birth" />
-                <DatePicker Date="{Binding DateOfBirth}" />
-            </StackLayout>
-            <Grid>
-                <Button Text="Sign up" Clicked="btnSignUp_Clicked" />
-            </Grid>
-            <!-- <Button Text="Sign Up" Clicked="btnSignUp_Clicked" HorizontalOptions="Center" />-->
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

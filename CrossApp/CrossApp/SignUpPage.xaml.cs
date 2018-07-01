@@ -44,7 +44,16 @@ namespace CrossApp
                 DisplayAlert("Erreur", "Password and its confirmation must be the same", "Ok");
             }
         }
-        #endregion
 
+        /// <summary>
+        /// Click on the back button to return on the login page
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
+        void btnBack_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushModalAsync(new LoginPage());
+        }
+        #endregion
     }
 }
