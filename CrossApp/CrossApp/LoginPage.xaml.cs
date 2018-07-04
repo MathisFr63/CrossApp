@@ -50,7 +50,9 @@ namespace CrossApp
         {
             var result = Manager.TryConnection(Login, Password);
             if (result)
-                Navigation.PushModalAsync(new HomePage());
+            {
+                //Navigation.PushModalAsync(new HomePage());
+            }
             else
             {
                 DisplayAlert("Erreur", "La connexion a échouée.", "Ok");
@@ -59,7 +61,7 @@ namespace CrossApp
 
         void btnSignUp_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushModalAsync(new SignUpPage());
+            //Navigation.PushModalAsync(new SignUpPage());
         }
         #endregion
     }
